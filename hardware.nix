@@ -16,6 +16,21 @@
       fsType = "zfs";
     };
 
+  fileSystems."/root" =
+    { device = "zroot/home/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "zroot/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/log" =
+    { device = "zroot/var/log";
+      fsType = "zfs";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/2E0B-8E47";
       fsType = "vfat";
