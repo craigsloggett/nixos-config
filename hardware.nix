@@ -26,6 +26,11 @@
       fsType = "zfs";
     };
 
+  fileSystems."/var" =
+    { device = "zroot/var";
+      fsType = "zfs";
+    };
+
   fileSystems."/var/log" =
     { device = "zroot/var/log";
       fsType = "zfs";
