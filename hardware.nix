@@ -6,34 +6,30 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # Only include ZFS datasets that are required for `initrd`:
+  # https://github.com/NixOS/nixpkgs/blob/c62f50e86d942d868f7fb96f0450ec0f8ba6bc04/nixos/lib/utils.nix#L10-L14
   fileSystems."/" =
     { device = "zroot/root";
       fsType = "zfs";
-    };
-
-  fileSystems."/home" =
-    { device = "zroot/home";
-      fsType = "zfs";
-    };
-
-  fileSystems."/root" =
-    { device = "zroot/home/root";
-      fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/nix" =
     { device = "zroot/nix";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/var" =
     { device = "zroot/var";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/var/log" =
     { device = "zroot/var/log";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
