@@ -12,13 +12,6 @@
 
   # Enable the Flakes feature and the accompanying new nix command-line tool.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-  ];
-
-  # Set the default editor to vim.
-  environment.variables.EDITOR = "vim";
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
