@@ -8,9 +8,11 @@
   outputs =
     { self, nixpkgs }@inputs:
     {
-      nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ hosts/xps ];
+      nixosConfigurations = {
+        xps = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ hosts/xps ];
+        };
       };
     };
 }
