@@ -7,12 +7,18 @@
   };
 
   outputs =
-    { self, nixpkgs, nixos-hardware }@inputs:
+    {
+      self,
+      nixpkgs,
+      nixos-hardware,
+    }@inputs:
     {
       nixosConfigurations = {
         xps = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [ ./hosts/xps ];
         };
       };
