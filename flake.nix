@@ -11,7 +11,7 @@
       nixosConfigurations = {
         xps = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ hosts/xps ];
+          modules = [ ./hosts/xps ];
         };
       };
     };
