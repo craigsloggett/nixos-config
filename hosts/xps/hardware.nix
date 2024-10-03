@@ -10,7 +10,7 @@
   imports = [ inputs.nixos-hardware.nixosModules.dell-xps-13-9360 ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_10;
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     initrd = {
