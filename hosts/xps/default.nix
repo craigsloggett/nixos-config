@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [ ./hardware.nix ];
@@ -11,6 +11,20 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    linux-firmware
+    git
+  ];
+
+  networking.wireless = {
+    enable = true;
+    networks.(builtins.getEnv "SSID").psk = (builtins.getEnv "PSK");
+  };
+
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILospQ0z+2yER9Q7Jh+4X91IRU+FzztRbkYg5t9C0B6o"
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
